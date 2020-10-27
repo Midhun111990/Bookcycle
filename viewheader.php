@@ -24,7 +24,7 @@ if($_SESSION["lid"]=="")
       <div class="nav-collapse">
         <ul class="nav pull-right">
           <li class="active"><a href="adminHome.php">Home</a></li>
-            <li><a href="viewlibrarian.php">View Librarian</a></li>        
+           
         </ul>
 
       </div>

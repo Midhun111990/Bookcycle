@@ -17,7 +17,9 @@ if(isset($_POST['btnlogin']))
 		
 		$row=mysqli_fetch_array($res);
 		$type=$row[3];
+
 		$_SESSION['lid']=$row[0];
+		
 		if($type=='admin'){
 			header("location:adminHome.php");
 			

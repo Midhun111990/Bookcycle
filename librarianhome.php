@@ -34,10 +34,13 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="#">Home</a></li>
-          <li><a href="user.php">User</a></li>
-          <li><a href="book.php">Book</a></li>
-          <li><a href="contact.php">Contact</a></li>
-          <li><a href="notificaton.php">Notifications</a></li>
+          <li><a href="adduser.php">User</a></li>
+          <li><a href="addbook.php">Books</a></li>
+          <li><a href="fine.php">Fine</a></li>
+           <li><a href="lendedbook.php">Lended</a></li>
+          <li><a href="donatedbook.php">Donated</a></li>
+          
+          <li><a href="noti.php">Notifications</a></li>
           <li><a href="feedback.php">Feedback</a></li>
           <li><a href="logout.php">Log-Out</a></li>
         </ul>

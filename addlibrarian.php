@@ -4,23 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 </head>
-<script>
-function validate()
-{
-  var pass=document.getElementById("txtpass").value;
-  var cpass=document.getElementById("confpass").value;
-  if(pass!=cpass){ 
-  alert("password mismatched");
-  }
-}
-</script>
 
 <?php
 include("librarian_header.php");
 include("connection.php");
+
+$clg_id=$_SESSION['lid'];
 if(isset($_POST['btnsubmit']))
 {
-  $id=$_POST['librarianid'];
   $fname=$_POST['librarianfname'];
   $lname=$_POST['librarianlname'];
   $email=$_POST['librarianemail'];
@@ -31,14 +22,13 @@ if(isset($_POST['btnsubmit']))
   $contact=$_POST['contactno'];
   $pin=$_POST['pincode'];
   $district=$_POST['slcdistrict'];
-  $status=$_POST['librarianstatus'];
-  $libid=$_POST['libraryid'];
+  $libname=$_POST['libraryname'];
   $utype=$_POST['usertype'];
    
   mysqli_query($con,"insert into login values(null,'$email','$pass','$utype')");
     $id=mysqli_insert_id($con);
     
-  mysqli_query($con,"insert into addlibrarian values('$id','$fname','$lname','$email','$pass','$gender','$add','$dob','$contact','$pin','$district','$status','$libid','$utype')")or die(mysqli_errno($con));
+  mysqli_query($con,"insert into addlibrarian values(null,'$fname','$lname','$email','$pass','$gender','$add','$dob','$contact','$pin','$district','$libname','$utype')")or die(mysqli_errno($con));
     ?>
     <script>
      alert("Librarian Added...");
@@ -53,11 +43,6 @@ if(isset($_POST['btnsubmit']))
   <center>
 <form action="" method="POST" enctype="multipart/form-data">
 <table width="800" cellspacing="0" cellpadding="10">
-  <tr>
-    <th scope="row">Id</th>
-    <td><label for="librarianid"></label>
-      <input type="text" name="librarianid" id="librarianid" size="20" required /></td>
-  </tr>
   <tr>
     <th scope="row">First Name</th>
     <td><label for="librarianfname"></label>
@@ -102,7 +87,7 @@ if(isset($_POST['btnsubmit']))
   <tr>
     <th scope="row">Contact no.</th>
     <td><label for="contactno"></label>
-      <input type="number" name="contactno" id="contactno" size="20" required pattern="[789][0-9]{9}"/></td>
+      <input type="number" name="contactno" id="contactno" size="20" required pattern="7890-9"/></td>
   </tr>
   <tr>
     <th scope="row">Pin</th>
@@ -131,16 +116,43 @@ if(isset($_POST['btnsubmit']))
         
       </select></td>
   </tr>
-  <tr>
-    <th scope="row">Status</th>
-    <td><label for="librarianstatus"></label>
-      <input type="text" name="librarianstatus" id="librarianstatus" size="20" required /></td>
+ 
+  
+ <tr>
+
+    <th scope="row">Library</th>
+    <td><select  name="libraryname">
+        <option value=""0 selected>Choose...</option>
+    <?php     
+                     include("connection.php");
+                    $qry="select id,libname from add_library";
+
+                    $run=mysqli_query($con,$qry);
+
+                    while ($rows=mysqli_fetch_array($run))
+                    {
+                    echo '<option value="' . $rows['id'] . '">' . $rows['libname'] . '</option>';
+                   }
+         ?>
+        </select>
+</td>
+
+
   </tr>
-  <tr>
-    <th scope="row">Library id</th>
-    <td><label for="libraryid"></label>
-      <input type="number" name="libraryid" id="libraryid" size="20" required /></td>
-  </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <tr>
     <th scope="row">Type</th>
     <td><label for="usertype"></label>

@@ -8,22 +8,19 @@
 <?php
 include("admin_header.php");
 include("connection.php");
-$clg_id=$_SESSION['lid'];
 if(isset($_POST['btnsubmit']))
 {
-  $id=$_POST['libid'];
   $name=$_POST['libname'];
   $add=$_POST['txtadd'];
   $cell=$_POST['number'];
-  $time=$_POST['worktime'];
   $pin=$_POST['txtpin'];
   $district=$_POST['slcdistrict'];
   
   
-    mysqli_query($con,"insert into add_library values('$id','$name','$add','$cell','$time','$pin','$district')") or die(mysqli_errno($con));
+    mysqli_query($con,"insert into add_library values(null,'$name','$add','$cell','$pin','$district')") or die(mysqli_errno($con));
   ?>
     <script>
-     alert("Registration submitted...");
+     alert("Library Added...");
    window.location='addlibrary.php';
     </script>
     <?php
@@ -35,11 +32,7 @@ if(isset($_POST['btnsubmit']))
   <center>
 <form action="" method="POST" enctype="multipart/form-data">
 <table width="800" cellspacing="0" cellpadding="10">
-  <tr>
-    <th scope="row">Id</th>
-    <td><label for="libid"></label>
-      <input type="text" name="libid" id="libid" size="20" required /></td>
-  </tr>
+ 
   <tr>
     <th scope="row">Library Name</th>
     <td><label for="libname"></label>
@@ -53,13 +46,9 @@ if(isset($_POST['btnsubmit']))
   <tr>
     <th scope="row">Cell number</th>
     <td><label for="number"></label>
-      <input type="number" name="number" id="number" size="20" required pattern="[789][0-9]{9}"/></td>
+      <input type="text" name="number" id="number" size="20" required pattern="[789][0-9]{9}"/></td>
   </tr>
-  <tr>
-    <th scope="row">Work Time</th>
-    <td><label for="number"></label>
-      <input type="number" name="worktime" id="worktime" size="20" required /></td>
-  </tr>
+ 
   <tr>
     <th scope="row">Pin</th>
     <td><label for="txtpin"></label>

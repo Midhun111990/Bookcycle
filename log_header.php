@@ -17,6 +17,7 @@
     <div class="nav-collapse">
         <ul class="nav pull-right">
         	<li class="active"><a href="index.php">Home</a></li>
+          
         </ul>
       </div>
      

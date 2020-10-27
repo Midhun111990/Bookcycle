@@ -9,22 +9,17 @@
 <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
 <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
 </head>
-<?php
-session_start();
-if($_SESSION["lid"]=="")
-{
-	header("location:index.php");
-}
 
-?>
 <body>
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.php"><span class="color-highlight">Book Cycling System</a>
       <div class="nav-collapse">
         <ul class="nav pull-right">
-          <li class="active"><a href="adminHome.php">Home</a></li>
-            <li><a href="viewlibrarian.php">View Librarian</a></li>        
+   
+ <li class="active"><a href="searchbook.php">Search</a></li>
+          <li class="active"><a href="librarianhome.php">Home</a></li>
+           
         </ul>
 
       </div>

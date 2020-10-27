@@ -23,8 +23,8 @@ if($_SESSION["lid"]=="")
     <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.php"><span class="color-highlight">Book Cycling System</a>
       <div class="nav-collapse">
         <ul class="nav pull-right">
-          <li class="active"><a href="adminHome.php">Home</a></li>
-            <li><a href="viewlibrarian.php">View Librarian</a></li>        
+          <li class="active"><a href="adminhome.php">Home</a></li>
+            <li><a href="viewcategory.php">View Category</a></li>        
         </ul>
 
       </div>

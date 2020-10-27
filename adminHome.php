@@ -37,8 +37,8 @@
           <li><a href="addlibrary.php">Library</a></li>
           <li><a href="addlibrarian.php">Librarian</a></li>
           <li><a href="addcategory.php">Category</a></li>
-          <li><a href=".php">Users</a></li>
-          <li><a href=".php">Gallery</a></li>
+         <li><a href="user.php">Users</a></li>          
+          <li><a href="book.php">Books</a></li>
           <li><a href="logout.php">Log-Out</a></li>
       
         </ul>
