@@ -24,7 +24,6 @@ include "connection.php";
     <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.php"><span class="color-highlight">Book Cycling System</a>
       <div class="nav-collapse">
         <ul class="nav pull-right">
-   
           <li class="active"><a href="librarianhome.php">Home</a></li>
            
         </ul>

@@ -1,4 +1,4 @@
-  <?php
+<?php
 include('connection.php');
 if(isset($_GET['id']))
 {
@@ -9,7 +9,7 @@ $row=mysqli_fetch_array($result);
 if(isset($_POST['btnupdate']))
 {
 
-$First_name=$_POST['ufname'];
+  $First_name=$_POST['ufname'];
   $Last_name=$_POST['ulname'];
   $email=$_POST['uemail'];
   $password=$_POST['upass'];
@@ -23,6 +23,9 @@ $First_name=$_POST['ufname'];
 
 
 $update="UPDATE adduser SET First_name='$First_name', Last_name='$Last_name', email='$email', password='$password', gender='$gender', address='$address', dob='$dob', contact='$contact', pincode='$pincode', district='$district', status='$status' WHERE id=".$_GET['id'];
+
+
+
 $up=mysqli_query($con,$update);
 if(!isset($sql)){
 die("error $sql".mysqli_connect_error());
@@ -35,11 +38,12 @@ header("location:viewuser.php");
 ?>
 <html>
 <head>
+<?php include("viewheader.php")?>
 
 </head>
 <body bgcolor="grey">
 <form method="POST">
-<table width="500" border="10" cellspacing="0" cellpadding="1" align="center" style="font-size: 150%">
+<table width="500" border="10" cellspacing="0" cellpadding="0" align="center" style="font-size: 150%">
   <center><tr>
   <td>First name <center><input type="text" name="ufname" value="<?php echo $row['First_name'];?>"></center></td></tr>
   <tr><td>Last name <center><input type="text" name="ulname" value="<?php echo $row['Last_name'];?>"></center></td></tr>
@@ -58,7 +62,7 @@ header("location:viewuser.php");
 
 <tr>
 <td align="center"><button type="submit" name="btnupdate" id="btnupdate" onClick="update()"><strong>Update</strong></button></td></tr>
-<tr align="center"><td><a href="viewlibrarian	.php"><button type="button" value="button">Cancel</button></a></center></td>
+<tr align="center"><td><a href="viewlibrarian.php"><button type="button" value="button">Cancel</button></a></center></td>
 </tr>
 </center>
 </table>

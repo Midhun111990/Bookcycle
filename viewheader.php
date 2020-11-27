@@ -11,11 +11,12 @@
 </head>
 <?php
 session_start();
-if($_SESSION["lid"]=="")
+$aid=$_SESSION['uname'];
+if(!$aid)
 {
-	header("location:index.php");
+  header("location:logout.php");
 }
-
+include "connection.php";
 ?>
 <body>
 <div class="navbar navbar-fixed-top">

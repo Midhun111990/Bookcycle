@@ -1,23 +1,29 @@
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+</head>
+<?php include("viewheader1.php")?>
+<body>
 <?php
 include('connection.php');
 //include('addcategory.php');
 $sql="SELECT * FROM adduser";
 $result=$con->Query($sql);
 ?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
-<?php include("viewheader.php")?>
-<body>
 <form action="" method="POST">
-<table width="1000" border="50" cellspacing="0" cellpadding="10" align="center">
-  <tr style="font-size: 150%">
-    <td >ID</td>
+</form>
+  <h1 align="center">Search</h1>
+  <form action="" method="GET"><center>
+  <input type="text" placeholder="Type the Email of user here" name="search">&nbsp;
+  <input type="submit" value="Search" name="btn" class="btn btn-sm btn-primary"></center>
+
+<table class="table table-striped table-responsive">
+<tr>
+<td>Id</td>
     <td>First Name</td>
     <td>Last Name</td>
     <td>E-mail</td>
@@ -29,12 +35,30 @@ $result=$con->Query($sql);
     <td>Pin</td>
     <td>District</td>
     <td>Status</td>
-  <td align="center" colspan="2">Operations</td>
+    <td>Library</td>
+<td>Operation</td>
 </tr>
+
+
 <?php
-if($result->num_rows>0){
-while($row=$result->fetch_assoc()){
+include("connection.php");
+
+$sql = "SELECT * FROM adduser";
+if( isset($_GET['search']) ){
+    $name = mysqli_real_escape_string($con, htmlspecialchars($_GET['search']));
+
+
+
+    $sql = "SELECT * FROM adduser WHERE email ='$name' or contact='$name'";
+}
+$result = $con->query($sql) or die($con->error);;
 ?>
+
+<?php
+$i=1;
+
+while($row = $result->fetch_assoc()){
+    ?>
   <tr>
     <td><?php echo $row['id']?></td>
  <td><?php echo $row['First_name']?></td>
@@ -48,25 +72,21 @@ while($row=$result->fetch_assoc()){
      <td><?php echo $row['pincode']?></td>
       <td><?php echo $row['district']?></td>
        <td><?php echo $row['status']?></td>
+   <td><?php echo $row['libname']?></td>
    
-     <td  align="center"><a href="deleteuser.php?id=<?php echo $row['id']?>"><input type="button" value="Delete"></a>
+     <td  align="center">
    <a href="updateuser.php?id=<?php echo $row['id']?>"><input type="button" value="Update"></a></td>
-</tr>
-<?php
+    
+    </tr>
+ <?php 
+
+ $i++; 
 }
-}
-else
-{
-?>
-<tr>
-<th colspan="2">There's no data found!!!</th>
-</tr>
-<?php
-}
-?>
+
+?>    
 
 </table>
-</form>
+
 
 <h3 align="center"><a href="adduser.php">BACK</a></h3>    
 

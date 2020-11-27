@@ -18,8 +18,7 @@ $result=$con->Query($sql);
 
 <table width="1000" border="50" cellspacing="0" cellpadding="10" align="center">
 <tr  style="font-size: 150%">
-    <td  >Id.</td>
-    <td>Name</td>
+    <td align="center">Name</td>
     <td align="center" colspan="2">Operations</td>
 </tr>
 <?php
@@ -28,7 +27,6 @@ while($row=$result->fetch_assoc()){
 ?>
 
 <tr>
-    <td><?php echo $row['catid']?></td> 
     <td><?php echo $row['catname']?></td>
     <td align="center"><a href="deletecategory.php?id=<?php echo $row['catid']?>"><input type="button" value="Delete"></a>
    <a href="updatecategory.php?id=<?php echo $row['catid']?>"><input type="button" value="Update"></a></td>

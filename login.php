@@ -18,11 +18,16 @@ if(isset($_POST['btnlogin']))
 		$row=mysqli_fetch_array($res);
 		$type=$row[3];
 
-		$_SESSION['lid']=$row[0];
+		$_SESSION['uname']=$uname;
 		
 		if($type=='admin'){
 			header("location:adminHome.php");
 			
+		}
+		else if($type=='student'){
+					$_SESSION['student-name'] = $row['username'];
+					
+			header("location:studentportal.php");
 		}
 		else if($type=='user'){
 			header("location:librarianhome.php");

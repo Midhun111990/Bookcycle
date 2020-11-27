@@ -39,9 +39,9 @@
           <li><a href="fine.php">Fine</a></li>
            <li><a href="lendedbook.php">Lended</a></li>
           <li><a href="donatedbook.php">Donated</a></li>
-          
-          <li><a href="noti.php">Notifications</a></li>
-          <li><a href="feedback.php">Feedback</a></li>
+          <li><a href="trysearch.php">Notification</a></li>
+          <li><a href="noti.php">Messages</a></li>
+          <li><a href="Profile.php">Profile</a></li>
           <li><a href="logout.php">Log-Out</a></li>
         </ul>
       </div>

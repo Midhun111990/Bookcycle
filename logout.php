@@ -1,8 +1,9 @@
 <?php
     session_start();
     // Destroy session
-    if(session_destroy()) {
+    unset($_SESSION['admin']);
+	session_destroy();
         // Redirecting To Home Page
         header("Location: login.php");
-    }
+    
 ?>
